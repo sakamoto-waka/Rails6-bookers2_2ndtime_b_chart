@@ -9,9 +9,15 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @today_books = @books.created_today
-    @yesterday_books = @books.created_yesterday
     @book = Book.new
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @the_day_before = @today_book.count / @yesterday_book.count.to_f * 100
+    
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
+    @the_week_before = @this_week_book.count / @last_week_book.count.to_f * 100
+    
   end
 
   def create
