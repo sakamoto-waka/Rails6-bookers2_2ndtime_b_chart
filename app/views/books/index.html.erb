@@ -10,6 +10,19 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <%= render 'index', books: @books%>
+      <h2>投稿数の前日比・前週比</h2>
+    <table class="table table-bordered">
+      <thead>
+        <th>今日の投稿数</th>
+        <th>前日の投稿数</th>
+        <th>前日比</th>
+      </thead>
+      <tbody>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>
