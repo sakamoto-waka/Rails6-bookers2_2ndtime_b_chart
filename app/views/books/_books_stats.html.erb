@@ -1,0 +1,33 @@
+<thead>
+  <th>今日の投稿数</th>
+  <th>前日の投稿数</th>
+  <th>前日比</th>
+</thead>
+<tbody>
+  <th><%= today_book.count_even_zero %></th>
+  <th><%= yesterday_book.count_even_zero %></th>
+  <th>
+    <% if (today_book && yesterday_book).blank? %>
+      投稿がない日があります
+    <% else %>
+      <%= the_day_before.round %>%
+    <% end %>
+  </th>
+</tbody>
+
+<thead>
+  <th>今週の投稿数</th>
+  <th>先週の投稿数</th>
+  <th>前週比</th>
+</thead>
+ <tbody>
+  <th><%= this_week_book.count_even_zero %></th>
+  <th><%= last_week_book.count_even_zero %></th>
+  <th>
+    <% if (this_week_book && last_week_book).blank? %>
+      投稿がない日があります
+    <% else %>
+      <%= the_week_before.round %>%
+    <% end %>
+  </th>
+</tbody>
