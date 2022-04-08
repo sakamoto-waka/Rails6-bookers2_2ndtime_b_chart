@@ -9,6 +9,8 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @today_books = @books.created_today
+    @yesterday_books = @books.created_yesterday
     @book = Book.new
   end
 

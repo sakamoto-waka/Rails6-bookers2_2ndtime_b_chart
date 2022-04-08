@@ -9,6 +9,15 @@ class Book < ApplicationRecord
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
   
+  # 投稿数が０の時のエラー回避
+  def self.count_even_zero
+    if blank?
+      puts 0
+    else
+      count
+    end
+  end
+  
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
