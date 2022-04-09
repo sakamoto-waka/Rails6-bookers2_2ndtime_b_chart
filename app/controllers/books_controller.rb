@@ -15,11 +15,13 @@ class BooksController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @the_day_before = @today_book.count / @yesterday_book.count.to_f * 100
     
+    # ここには１週間分の本すべてが入ってる（配列で入ってない）
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
     @the_week_before = @this_week_book.count / @last_week_book.count.to_f * 100
     
-  
+    @seven_days_book = @books.count_week_book + [@today_book.count]
+    
   end
 
   def create
