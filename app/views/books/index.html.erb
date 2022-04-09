@@ -11,8 +11,8 @@
       <h2>Books</h2>
       <%= render 'index', books: @books %>
       <!--<h2>投稿数の前日比・前週比</h2>-->
-      <h2>7日間分の投稿数</h2>
-      <table class="table table-bordered">
+      <!--<h2>7日間分の投稿数</h2>-->
+      <!--<table class="table table-bordered">-->
       <!--  <#%= render 'books/books_stats', today_book: @today_book, -->
       <!--                                  yesterday_book: @yesterday_book,-->
       <!--                                  the_day_before: @the_day_before,-->
@@ -20,6 +20,8 @@
       <!--                                  last_week_book: @last_week_book,-->
       <!--                                  the_week_before: @the_week_before %>    -->
 
+<% if false %>
+#コメントアウト中
       <thead>
         <% (1..6).reverse_each do |day_num| %>
           <th><%= day_num %>日前</th>
@@ -33,7 +35,7 @@
       </tbody>
       <canvas id="myLineChart"></canvas>
       <script>
-          $(document).on('turbolinks:load', function() {
+        $(document).on('turbolinks:load', function() {
           var ctx = document.getElementById("myLineChart");
           var myLineChart = new Chart(ctx, {
             type: 'line',
@@ -71,7 +73,8 @@
       </script>  
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       </table>
-      
+コメントアウト中ここまで
+<% end %>　
     </div>
   </div>
 </div>
