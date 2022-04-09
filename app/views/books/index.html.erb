@@ -21,10 +21,17 @@
       <!--                                  the_week_before: @the_week_before %>    -->
 
       <thead>
-        <% (0..6).each do |num| %>
-          <th><%= num %>日前</th>
+        <% (1..6).reverse_each do |day_num| %>
+          <th><%= day_num %>日前</th>
         <% end %>
+        <th>今日</th>
       </thead>
+      <tbody>
+        <% @books.count_week_book.each do |book_num| %>
+          <td><%= book_num %></td>
+        <% end %>  
+          <td><%= @today_book.count %></td>
+      </tbody>
 
       </table>
 

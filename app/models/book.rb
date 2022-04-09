@@ -19,6 +19,10 @@ class Book < ApplicationRecord
    blank? ? 0 : count
   end
   
+  def self.count_week_book
+    (1..6).map { |n| created_days_ago(n).count }.reverse
+  end
+  
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
